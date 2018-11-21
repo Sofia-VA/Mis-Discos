@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style= "text-align:center ;background-color: rgb(14, 25, 46)">
+      <h2 style="color: rgb(248, 248, 135)">Mis Discos</h2>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color: rgb(14, 25, 46)">
+  <ion-card style="border-radius: 10px" *ngFor="let disco of discos">
+    <ion-item [ngStyle]="{'background-color': disco.color}">
+      <ion-col item-start>
+        <img (click)="clickCover(disco.id)" [src]=disco.imagen>
+      </ion-col>
+      <h2 (click)="clickBio(disco.id)" style="color:whitesmoke">{{disco.artista}}</h2>
+      <p (click)="clickS(disco.id)"style="color:whitesmoke"> {{disco.album}}</p>
+      <p style="color: whitesmoke">{{disco.anio}}</p>
+    <ion-row style="color:whitesmoke">
+      <ion-icon name="star" *ngFor="let s of disco.valoracion"></ion-icon>
+    </ion-row>
+    <ion-row>
+      <ion-icon style="color:whitesmoke" name="play"></ion-icon>
+    </ion-row>
+    </ion-item>
+  </ion-card>
+</ion-content>
